@@ -105,7 +105,7 @@ String multiavatar(String string) {
       },
       "B": {
         "env": ["#00a58c"],
-        "clo": ["#000", "#5b00", "#5100", "#a000", "#a000"],
+        "clo": ["#000", "#005b00", "#005100", "#00a000", "#00a000"],
         "head": ["#FAD2B9"],
         "mouth": ["#fff", "#000"],
         "eyes": ["#000"],
@@ -596,7 +596,7 @@ String multiavatar(String string) {
         "clo": ["#000", "#00FFFF"],
         "head": ["#755227"],
         "mouth": ["#fff", "#000"],
-        "eyes": ["black", "#008a", "aqua"],
+        "eyes": ["black", "#66008a", "aqua"],
         // "top": ["#004a57"] // dark blue
         "top": ["#fff", "#fff", "#fff", "#fff", "#fff"]
       },
@@ -1011,6 +1011,7 @@ String multiavatar(String string) {
         .toList()
         .map((e) => e.group(1))
         .toList();
+    print(result);
 
     for (var i = 0; i < result.length; i++) {
       print("change: ${result[i]} ===> with: ${colors[i]}");
