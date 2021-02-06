@@ -1003,14 +1003,19 @@ String multiavatar(String string) {
     var colors = themes[partV][theme][part];
     var svgString = sP[partV][part];
 
-    var regex = r"#(.*?);";
+    var regex = r"(#.*?;)";
     var resultFinal = svgString;
-    int index = 0;
-    RegExp(regex).allMatches(svgString).forEach((e) {
-      print("${e.group(1)} ===> ${colors[index]}");
-      resultFinal = resultFinal.replaceAll("#${e.group(1)}", colors[index]);
-      index++;
-    });
+
+    var result = RegExp(regex)
+        .allMatches(svgString)
+        .toList()
+        .map((e) => e.group(1))
+        .toList();
+
+    for (var i = 0; i < result.length; i++) {
+      print("change: ${result[i]} ===> with: ${colors[i]}");
+      resultFinal = resultFinal.replaceFirst(result[i], colors[i] + ';');
+    }
 
     return resultFinal;
   }
