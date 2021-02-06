@@ -1007,8 +1007,8 @@ String multiavatar(String string) {
     var resultFinal = svgString;
     int index = 0;
     RegExp(regex).allMatches(svgString).forEach((e) {
-      resultFinal = resultFinal.replaceAll(
-          e.group(1), colors[index].replaceAll('#', '') + ';');
+      print("${e.group(1)} ===> ${colors[index]}");
+      resultFinal = resultFinal.replaceAll("#${e.group(1)}", colors[index]);
       index++;
     });
 
