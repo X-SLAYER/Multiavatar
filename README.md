@@ -25,6 +25,8 @@ dependencies:
 var svgCode = multiavatar('X-SLAYER')
 ```
 
+check the exemple of using multiavatar with svg package [Multiavatar + svg package](https://github.com/X-SLAYER/multiavatar-exemple)
+
 ### Info ###
 
 To create new avatars, the Multiavatar mixes different parts of different avatars, and different color themes.
