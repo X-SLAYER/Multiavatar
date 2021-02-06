@@ -1,7 +1,6 @@
 name: multiavatar
 description: Multiavatar is a multicultural avatar maker.
-version: 1.0.1
-author: Iheb Briki<iheb@pixelium.tn>
+version: 0.1.1
 homepage: https://github.com/X-SLAYER/Multiavatar
 
 environment:
