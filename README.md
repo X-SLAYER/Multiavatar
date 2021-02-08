@@ -24,6 +24,11 @@ dependencies:
 ```dart
 var svgCode = multiavatar('X-SLAYER')
 ```
+avatar with transparent background
+
+```dart
+var svgCode = multiavatar('X-SLAYER', trBackground: true);
+```
 
 check the exemple of using multiavatar with svg package [Multiavatar + svg package](https://github.com/X-SLAYER/multiavatar-exemple)
 
@@ -41,7 +46,7 @@ The string of characters is also the input for the Multiavatar package, which co
 
 `474747474747` - this is the 12,230,590,464th avatar (or the 16th initial avatar + its "C" color theme).
 
-More info can be found in the `multiavatar.js` file comments.
+More info can be found in the `multiavatar.dart` file comments.
 
 
 

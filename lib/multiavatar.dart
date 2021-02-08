@@ -3,10 +3,10 @@ library multiavatar;
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
-String multiavatar(String string) {
+String multiavatar(String string, {bool trBackground = false}) {
   string += '';
 
-  var themes = {
+  Map<String, Map<String, Map<String, List<String>>>> themes = {
     // Robo
     "00": {
       "A": {
@@ -647,11 +647,11 @@ String multiavatar(String string) {
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231 231">';
   String svgEnd = '</svg>';
 
-  var env =
+  String env =
       '<path d="M33.83,33.83a115.5,115.5,0,1,1,0,163.34,115.49,115.49,0,0,1,0-163.34Z" style="fill:#01;"/>';
-  var head =
+  String head =
       '<path d="m115.5 51.75a63.75 63.75 0 0 0-10.5 126.63v14.09a115.5 115.5 0 0 0-53.729 19.027 115.5 115.5 0 0 0 128.46 0 115.5 115.5 0 0 0-53.729-19.029v-14.084a63.75 63.75 0 0 0 53.25-62.881 63.75 63.75 0 0 0-63.65-63.75 63.75 63.75 0 0 0-0.09961 0z" style="fill:#000;"/>';
-  var str = 'stroke-linecap:round;stroke-linejoin:round;stroke-width:';
+  String str = 'stroke-linecap:round;stroke-linejoin:round;stroke-width:';
 
   // Robo
   sP['00']['env'] = env;
@@ -954,9 +954,10 @@ String multiavatar(String string) {
   String hash = '';
   if (string.length == 0) return hash;
 
-  var bytes1 = utf8.encode(string);
-  var sha256Hash = sha256.convert(bytes1);
-  var sha256Numbers = sha256Hash.toString().replaceAll(RegExp(r'[^0-9]'), '');
+  List<int> bytes1 = utf8.encode(string);
+  Digest sha256Hash = sha256.convert(bytes1);
+  String sha256Numbers =
+      sha256Hash.toString().replaceAll(RegExp(r'[^0-9]'), '');
 
   hash = sha256Numbers.substring(0, 12);
 
@@ -1000,21 +1001,21 @@ String multiavatar(String string) {
   }
 
   String getFinal(part, partV, theme) {
-    var colors = themes[partV][theme][part];
-    var svgString = sP[partV][part];
+    List<String> colors = themes[partV][theme][part];
+    String svgString = sP[partV][part];
 
-    var regex = r"(#.*?;)";
-    var resultFinal = svgString;
+    String regex = r"(#.*?;)";
+    String resultFinal = svgString;
 
-    var result = RegExp(regex)
+    List<String> result = RegExp(regex)
         .allMatches(svgString)
         .toList()
         .map((e) => e.group(1))
         .toList();
-    print(result);
+    // print(result);
 
     for (var i = 0; i < result.length; i++) {
-      print("change: ${result[i]} ===> with: ${colors[i]}");
+      // print("change: ${result[i]} ===> with: ${colors[i]}");
       resultFinal = resultFinal.replaceFirst(result[i], colors[i] + ';');
     }
 
@@ -1029,6 +1030,8 @@ String multiavatar(String string) {
 
     _final[part] = getFinal(part, partV, theme);
   }
+
+  if (trBackground) _final['env'] = '';
 
   return (svgStart +
       _final['env'] +
