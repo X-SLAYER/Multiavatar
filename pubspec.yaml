@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  crypto: ^2.1.5
+  crypto: ^3.0.0
 
 dev_dependencies:
   flutter_test:
