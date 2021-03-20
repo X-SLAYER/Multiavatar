@@ -7,3 +7,6 @@
 ## 0.1.2
 
 * Generate avatars with transparent background`.
+## 0.1.3
+
+* update crypto dependencie + add exemple.
