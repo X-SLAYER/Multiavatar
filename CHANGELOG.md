@@ -10,3 +10,7 @@
 ## 0.1.3
 
 * update crypto dependencie + add exemple.
+* Generate avatars with transparent background`.
+## 0.1.4
+
+* Migrate package to Null-Safety
