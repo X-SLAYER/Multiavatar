@@ -43,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             FloatingActionButton(
               onPressed: () {
+                log(multiavatar(DateTime.now().toIso8601String()));
                 setState(() {
                   _controller.text =
                       multiavatar(DateTime.now().toIso8601String());
