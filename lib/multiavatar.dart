@@ -1017,7 +1017,7 @@ String multiavatar(String string, {bool trBackground = false}) {
     for (var i = 0; i < result.length; i++) {
       // print("change: ${result[i]} ===> with: ${colors[i]}");
       resultFinal =
-          resultFinal.replaceFirst(result[i] ?? "", colors?[i] ?? "" + ';');
+          resultFinal.replaceFirst(result[i] ?? "", (colors?[i] ?? "") + ';');
     }
 
     return resultFinal;
