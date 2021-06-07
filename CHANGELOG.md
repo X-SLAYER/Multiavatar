@@ -14,3 +14,6 @@
 ## 0.1.4
 
 * Migrate package to Null-Safety
+## 0.1.5
+
+* Fix semi-colon removal bug
